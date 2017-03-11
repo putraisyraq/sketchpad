@@ -1,0 +1,36 @@
+#wrapper {
+	display: block;
+	margin: 0 auto;
+	padding: 0;
+	height: 500px;
+	width: auto;
+	background-color: midnightblue;
+}
+
+.rows {
+	display: block;
+	margin: 0;
+	padding: 0;
+	height: 16px;
+	width: auto;
+	background-color: crimson;
+	text-align: center; /* Make all element in it to center.*/
+}
+
+.units {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	height: 16px;
+	width: 16px;
+	background-color: teal;
+	border: 0.5px dotted pink;
+}
+
+.units_enter {
+	background-color: #000;
+}
+
+.units_leave {
+	background-color: #666;
+}
