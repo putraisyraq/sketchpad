@@ -29,6 +29,12 @@ $(document).ready(function() {
 		$(this).addClass("units_enter");
 	});
 	$units.mouseleave(function(){
-		$(this).removeClass("units_leave");
+		$(this).addClass("units_leave");
 	});
 });
+
+// Clicking Reset
+		$units.click(function(){
+		$units.removeClass("units_enter");
+		$units.removeClass("units_enter");
+	});
