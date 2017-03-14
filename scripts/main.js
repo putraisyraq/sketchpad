@@ -11,7 +11,6 @@ $(document).ready(function() {
 	var units = 16;
 	var $rows = $('.rows');
 	var $units = $('.units');
-	var color = $('.units').css('background-color');
 
 // Units boxes duplication
 	for (var i = 0; i < units; i++) {
@@ -21,11 +20,15 @@ $(document).ready(function() {
 		$rows.clone().insertAfter($rows);
 	}
 
+// Requerrying for $units and $rows
+	$rows = $('.rows');
+	$units = $('.units');
+
 // Hovering class change
 	$units.mouseenter(function(){
-		$units.addClass("units_enter");
+		$(this).addClass("units_enter");
 	});
 	$units.mouseleave(function(){
-		$units.removeClass("units_leave");
+		$(this).removeClass("units_leave");
 	});
 });
