@@ -4,26 +4,22 @@
 
 		<title>Sketch Pad</title>
 		<link rel="stylesheet" type="text/css" href="styles/stylesheet.css">
-		<!-- Adding jQuery -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-		<script src="scripts/main.js"></script>
+
 
 	</head>
 	<body>
 		<div id="settings">
 			<button class="resetBtn">Reset</button>
-			<form>
-				
-				<input type="number" class="pixels" value="16">
-				<button class="pixelsBtn">Change pixels</button>
-			</form>
+			<input type="text" class="gridText" value="16">
+			<button class="gridBtn">Change pixels</button>
 		</div>
 
 		<div id="wrapper">
-			<div class="rows">
-				<div class="units"></div>
-			</div>
+			<div class="box"></div>
 		</div>
 
+		<!-- Adding jQuery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src="scripts/main.js"></script>
 	</body>
 </html>

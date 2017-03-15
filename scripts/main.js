@@ -1,42 +1,56 @@
+
 $(document).ready(function() {
+	drawUnits();
+	hover();
+	reset();
+	gridSize();
+});
 
-	var rows = 16;
-	var units = 16;
-	var $rows = $('.rows');
-	var $units = $('.units');
-
-// Change units
-
-	$('.pixels').keyup(function(){
-		rows = +$("input[name=pixels]").val();
-		units = +$("input[name=pixels]").val();
-		console.log(rows)
-	})
+var units = 16;
+var $units = $('.units');
+var $unitsCode = $('<div class="units"></div>');
 
 // Units boxes duplication
-	for (var i = 0; i < units -1; i++) {
-		$units.clone().insertAfter($units);
-	}
-	for (var i = 0; i < rows -1; i++) {
-		$rows.clone().insertAfter($rows);
+function drawUnits () {
+	var wrapperHeight = $('#wrapper').height();
+	var wrapperWidth = $('#wrapper').width();
+	var unitsHeight = wrapperHeight / units;
+	var unitsWidth = wrapperWidth / units;
+	
+	for (var i = 0; i < units * units; i++) {
+		$unitsCode.clone().appendTo($('#wrapper'));
 	}
 
-// Requerrying for $units and $rows
-	$rows = $('.rows');
+	$('.units').css({'height': unitsHeight + "px", 
+					'width': unitsWidth + "px"});
+}
+
+// Hover
+function hover(){
 	$units = $('.units');
-
-// Hovering class change
-	$units.mouseenter(function(){
-		$(this).addClass("units_enter");
+	$units.mouseover(function(){
+		$(this).addClass('units_enter');
 	});
-	$units.mouseleave(function(){
-		$(this).addClass("units_leave");
-	});
+}
 
 // Clicking Reset
-		$(':button').click(function(){
-		$units.removeClass("units_leave");
-		$units.removeClass("units_enter");
+function reset(){
+		$('.resetBtn').click(function(){
+		$units.removeClass('units_leave');
+		$units.removeClass('units_enter');
+	});
+}
+
+// Setting Grid
+function gridSize() {
+	$('.gridBtn').on('click', function(){
+		var gridInput = +$('.gridText').val();
+		units = parseInt(gridInput);
+		console.log(units);
+		$units.remove();
+		drawUnits();
+		reset();
 	});
 
-});
+}
+
