@@ -1,10 +1,3 @@
-// Objective, make divs using js/jQuery 
-// Find div parent.
-// Make a div .row, this will contain all of the columns (.units)
-// To duplicate, first the units will duplicate itself inline, \
-// The rows will then duplicate the same amount downwards
-
-
 $(document).ready(function() {
 
 	var rows = 16;
@@ -12,11 +5,19 @@ $(document).ready(function() {
 	var $rows = $('.rows');
 	var $units = $('.units');
 
+// Change units
+
+	$('.pixels').keyup(function(){
+		rows = +$("input[name=pixels]").val();
+		units = +$("input[name=pixels]").val();
+		console.log(rows)
+	})
+
 // Units boxes duplication
-	for (var i = 0; i < units; i++) {
+	for (var i = 0; i < units -1; i++) {
 		$units.clone().insertAfter($units);
 	}
-	for (var i = 0; i < rows; i++) {
+	for (var i = 0; i < rows -1; i++) {
 		$rows.clone().insertAfter($rows);
 	}
 
@@ -31,10 +32,11 @@ $(document).ready(function() {
 	$units.mouseleave(function(){
 		$(this).addClass("units_leave");
 	});
-});
 
 // Clicking Reset
-		$units.click(function(){
-		$units.removeClass("units_enter");
+		$(':button').click(function(){
+		$units.removeClass("units_leave");
 		$units.removeClass("units_enter");
 	});
+
+});
