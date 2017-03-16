@@ -16,6 +16,7 @@ div{
 	width: 500px;
 	background-color: midnightblue;
 	font-size: 0;
+	border: 2px solid black;
 }
 
 .box {

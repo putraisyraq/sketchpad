@@ -1,28 +1,28 @@
 
 $(document).ready(function() {
-	drawUnits();
-	hover();
-	reset();
+	drawUnits(16);
 	gridSize();
 });
 
-var units = 16;
 var $units = $('.units');
 var $unitsCode = $('<div class="units"></div>');
 
 // Units boxes duplication
-function drawUnits () {
+function drawUnits (number) {
+	$('#wrapper').children().remove();
 	var wrapperHeight = $('#wrapper').height();
 	var wrapperWidth = $('#wrapper').width();
-	var unitsHeight = wrapperHeight / units;
-	var unitsWidth = wrapperWidth / units;
+	var unitsHeight = wrapperHeight / number;
+	var unitsWidth = wrapperWidth / number;
 	
-	for (var i = 0; i < units * units; i++) {
+	for (var i = 0; i < number * number; i++) {
 		$unitsCode.clone().appendTo($('#wrapper'));
 	}
 
 	$('.units').css({'height': unitsHeight + "px", 
 					'width': unitsWidth + "px"});
+	hover();
+	reset();
 }
 
 // Hover
@@ -36,7 +36,6 @@ function hover(){
 // Clicking Reset
 function reset(){
 		$('.resetBtn').click(function(){
-		$units.removeClass('units_leave');
 		$units.removeClass('units_enter');
 	});
 }
@@ -45,11 +44,7 @@ function reset(){
 function gridSize() {
 	$('.gridBtn').on('click', function(){
 		var gridInput = +$('.gridText').val();
-		units = parseInt(gridInput);
-		console.log(units);
-		$units.remove();
-		drawUnits();
-		reset();
+		drawUnits(gridInput);
 	});
 
 }
